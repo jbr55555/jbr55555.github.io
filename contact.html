@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="fr" data-lang="fr" data-title-fr="Contact – T55555 Games" data-title-en="Contact – T55555 Games">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact – T55555 Games</title>
+<meta name="description" content="Contacter T55555 Games / Contact T55555 Games">
+<link rel="icon" type="image/png" href="assets/studio-logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+<script src="assets/lang.js"></script>
+<script src="assets/nav.js" defer></script>
+</head>
+<body data-page="contact">
+<aside class="sidebar" id="sidebar"></aside>
+<div class="page">
+  <header class="top">
+    <div class="wrap">
+      <button class="menu-btn" id="menu-toggle" type="button" aria-controls="sidebar" aria-expanded="false" aria-label="Menu">☰</button>
+      <a class="top-brand" href="./"><img src="assets/studio-logo.png" alt="" width="32" height="32"><span>T55555 Games</span></a>
+      <div class="spacer"></div>
+      <div class="lang" role="group" aria-label="Langue / Language">
+        <button type="button" data-set-lang="fr" aria-pressed="true">FR</button>
+        <button type="button" data-set-lang="en" aria-pressed="false">EN</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero" style="display:block">
+      <h1>Contact</h1>
+      <p class="lead" lang="fr">Une question, un bug, une idée, ou une demande de suppression de vos données ? Écrivez-nous :</p>
+      <p class="lead" lang="en">A question, a bug, an idea, or a request to delete your data? Write to us:</p>
+    </section>
+
+    <div class="contact-box">
+      <span class="contact-mail" id="mail">t55555.games@gmail.com</span>
+      <div class="actions">
+        <a class="btn primary" href="mailto:t55555.games@gmail.com"><span lang="fr">Écrire un e-mail</span><span lang="en">Send an email</span></a>
+        <button class="btn" type="button" id="copy"><span lang="fr">Copier l'adresse</span><span lang="en">Copy address</span></button>
+      </div>
+      <p class="copied" id="copied" hidden><span lang="fr">Adresse copiée !</span><span lang="en">Address copied!</span></p>
+    </div>
+  </main>
+
+  <footer class="bottom">
+    <div class="wrap">
+      <span>© 2026 T55555 Games</span>
+      <a href="privacy.html" lang="fr">Politique de confidentialité</a>
+      <a href="privacy.html#en" lang="en">Privacy Policy</a>
+    </div>
+  </footer>
+</div>
+<script>
+  document.getElementById("copy").addEventListener("click", function () {
+    var text = document.getElementById("mail").textContent;
+    var done = function () { var c = document.getElementById("copied"); c.hidden = false; setTimeout(function () { c.hidden = true; }, 2500); };
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(done, fallback); else fallback();
+    function fallback() {
+      var r = document.createRange(); r.selectNodeContents(document.getElementById("mail"));
+      var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+      try { document.execCommand("copy"); done(); } catch (e) {}
+    }
+  });
+</script>
+</body>
+</html>
