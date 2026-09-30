@@ -41,6 +41,9 @@
     var priv = el("a", { href: "privacy.html" }, bi("Confidentialité", "Privacy"));
     if (page === "privacy") { priv.className = "active"; priv.setAttribute("aria-current", "page"); }
     foot.appendChild(el("li", {}, [priv]));
+    var del = el("a", { href: "delete-data.html" }, bi("Supprimer vos données", "Delete your data"));
+    if (page === "delete-data") { del.className = "active"; del.setAttribute("aria-current", "page"); }
+    foot.appendChild(el("li", {}, [del]));
     var contact = el("a", { href: "contact.html" }, ["Contact"]);
     if (page === "contact") { contact.className = "active"; contact.setAttribute("aria-current", "page"); }
     foot.appendChild(el("li", {}, [contact]));
