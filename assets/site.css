@@ -157,3 +157,5 @@ button.btn { background: transparent; cursor: pointer; }
 .copied { color: var(--warm); margin: 12px 0 0; }
 footer.bottom .social { display: inline-flex; flex-wrap: wrap; gap: 4px 14px; margin-left: auto; }
 footer.bottom .social a { color: var(--cyan); }
+.side-list li.side-sub a { padding-left: 48px; font-size: 14px; color: var(--muted); }
+.side-list li.side-sub a.active { color: var(--cyan); }

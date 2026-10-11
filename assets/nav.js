@@ -2,7 +2,9 @@
 // Ordinateur : colonne fixe à gauche. Tablette / téléphone : tiroir ouvert par le bouton ☰ de l'en-tête.
 (function () {
   var GAMES = [
-    { id: "runes-and-demons", href: "runes-and-demons.html", icon: "assets/runes-and-demons/icon.png", name: "Runes & Demons" }
+    { id: "runes-and-demons", href: "runes-and-demons.html", icon: "assets/runes-and-demons/icon.png", name: "Runes & Demons",
+      // Pages légales propres au jeu : <id>-privacy.html et <id>-delete-data.html
+      legal: true }
     // { id: "nexus", href: "nexus.html", icon: "assets/nexus/icon.png", name: "Nexus" },
   ];
 
@@ -35,15 +37,15 @@
     list.appendChild(el("li", { class: "side-heading" }, bi("Jeux", "Games")));
     GAMES.forEach(function (g) {
       item(g.id, g.href, [el("img", { src: g.icon, alt: "", width: "28", height: "28" }), el("span", {}, [g.name])]);
+      if (g.legal) {
+        item(g.id + "-privacy", g.id + "-privacy.html", bi("Confidentialité", "Privacy"));
+        list.lastChild.className = "side-sub";
+        item(g.id + "-delete-data", g.id + "-delete-data.html", bi("Supprimer vos données", "Delete your data"));
+        list.lastChild.className = "side-sub";
+      }
     });
 
     var foot = el("ul", { class: "side-list side-foot" });
-    var priv = el("a", { href: "privacy.html" }, bi("Confidentialité", "Privacy"));
-    if (page === "privacy") { priv.className = "active"; priv.setAttribute("aria-current", "page"); }
-    foot.appendChild(el("li", {}, [priv]));
-    var del = el("a", { href: "delete-data.html" }, bi("Supprimer vos données", "Delete your data"));
-    if (page === "delete-data") { del.className = "active"; del.setAttribute("aria-current", "page"); }
-    foot.appendChild(el("li", {}, [del]));
     var contact = el("a", { href: "contact.html" }, ["Contact"]);
     if (page === "contact") { contact.className = "active"; contact.setAttribute("aria-current", "page"); }
     foot.appendChild(el("li", {}, [contact]));
