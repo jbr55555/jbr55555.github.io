@@ -3,7 +3,7 @@
 (function () {
   var GAMES = [
     { id: "runes-and-demons", href: "runes-and-demons.html", icon: "assets/runes-and-demons/icon.png", name: "Runes & Demons",
-      // Pages légales propres au jeu : <id>-privacy.html et <id>-delete-data.html
+      // Pages légales propres au jeu : <id>-privacy.html, <id>-delete-data.html et <id>-licenses.html
       legal: true }
     // { id: "nexus", href: "nexus.html", icon: "assets/nexus/icon.png", name: "Nexus" },
   ];
@@ -41,6 +41,8 @@
         item(g.id + "-privacy", g.id + "-privacy.html", bi("Confidentialité", "Privacy"));
         list.lastChild.className = "side-sub";
         item(g.id + "-delete-data", g.id + "-delete-data.html", bi("Supprimer vos données", "Delete your data"));
+        list.lastChild.className = "side-sub";
+        item(g.id + "-licenses", g.id + "-licenses.html", bi("Licences", "Licenses"));
         list.lastChild.className = "side-sub";
       }
     });
